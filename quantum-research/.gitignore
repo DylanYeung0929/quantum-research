@@ -1,0 +1,13 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Office lock files
+~$*
+
+# OS/editor metadata
+.DS_Store
+Thumbs.db
+
+# Empty/generated model placeholders
+*.model
