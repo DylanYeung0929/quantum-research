@@ -1,13 +1,33 @@
-# Quantum Research Archive
+<div align="center">
 
-本目录整理自 `D:\Study\Quantum`，用于版本管理与后续同步到 GitHub。
+# Quantum Research
+
+### 经典神经网络与量子—经典混合机器学习研究归档
+
+Air quality classification · Medical insurance cost regression
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![VQNet](https://img.shields.io/badge/Framework-VQNet-7C3AED?style=flat-square)
+![Research](https://img.shields.io/badge/Focus-Hybrid_Machine_Learning-0F766E?style=flat-square)
+
+[课题导览](#课题划分) · [阅读与复现](#阅读与复现) · [来源清单](SOURCE-MANIFEST.md)
+
+</div>
+
+---
+
+本仓库整理自原始研究资料，保存经典神经网络基线、量子—经典混合模型实验记录、数据、图表与报告，便于按课题查阅和继续研究。
+
+> A research archive comparing classical neural networks and hybrid quantum–classical approaches across classification and regression tasks.
 
 ## 课题划分
 
 仓库包含两个相互独立的研究课题：
 
-1. [`air-quality-classification`](projects/air-quality-classification/README.md)：空气质量四分类，包含司南杯材料、经典神经网络基线、量子混合模型实验图片和测试表。
-2. [`medical-insurance-cost-regression`](projects/medical-insurance-cost-regression/README.md)：医疗保险费用回归，包含保险数据、量子混合模型实验记录、RMSE 结果和报告。
+| 课题 | 任务与输入 | 资料入口 |
+| --- | --- | --- |
+| 空气质量四分类 | 以气象、污染物及区域特征预测四个空气质量类别；比较经典与量子模型 | [课题 README](projects/air-quality-classification/README.md) |
+| 医疗保险费用回归 | 以年龄、BMI、吸烟情况等特征预测费用；记录混合模型的 RMSE 与超参数实验 | [课题 README](projects/medical-insurance-cost-regression/README.md) |
 
 两个课题均按以下逻辑组织：
 
@@ -15,6 +35,30 @@
 - `documents/`：报告和辅助文档
 - `results/`：实验图片和结果（存在时）
 - `archives/`：原始压缩包，使用 Git LFS 管理
+
+## 阅读与复现
+
+建议先阅读各课题 README 和报告，再查看数据、代码与实验图；报告中的历史结果应结合对应版本、超参数与数据划分理解。
+
+克隆源码和普通文档：
+
+```bash
+git clone https://github.com/DylanYeung0929/quantum-research.git
+cd quantum-research
+```
+
+需要原始 ZIP 归档时，在安装 Git LFS 后执行：
+
+```bash
+git lfs install
+git lfs pull
+```
+
+`.gitattributes` 中的 `projects/**/archives/*.zip` 使用 LFS；没有下载 LFS 内容时，这些文件可能只是指针文件。
+
+空气质量的可见 Python 入口包括 `classical-baselines/complete/template_classical.py` 和 `classical-baselines/zmz/template_classical.py`。它们使用 `pyvqnet`、NumPy、pandas 和 scikit-learn，并保留了原始 Windows 绝对路径。运行前需要配置兼容的依赖环境，将脚本中的 `data_directory` 改为本机对应数据目录。
+
+仓库尚未提供统一的依赖锁定文件或覆盖全部课题的一键运行入口。量子混合实验应从对应报告与原始归档查找代码版本；已保存的图表和报告不代表当前环境已重新运行验证。
 
 ## 整理原则
 
